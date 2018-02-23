@@ -9,6 +9,13 @@ const prettyOptions = {createOptions: {headless: true}, endOptions: {pretty: tru
 describe('simple tags', () => {
   test('simple xml', () => {
     expect(
+      render(<test>1</test>),
+    )
+      .toBe('<?xml version="1.0"?><test>1</test>')
+  })
+
+  test('simple xml', () => {
+    expect(
       render(<test>1</test>, commonOptions),
     )
       .toBe('<test>1</test>')

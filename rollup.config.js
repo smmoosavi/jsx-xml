@@ -24,7 +24,6 @@ const config = {
     babel({
       exclude: '**/node_modules/**',
       plugins: ['external-helpers'],
-      externalHelpers: true,
     }),
     replace({
       'process.env.NODE_ENV': JSON.stringify(env),

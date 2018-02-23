@@ -30,9 +30,11 @@ const JSXXML = (tag, attr, ...children) => {
   }
   if (_.isString(tag)) {
     children = normalizeChildren(children)
+    attr = _.omitBy(attr, (value, key) => key.startsWith('__'))
+    attr = _.mapKeys(attr, (value, key) => '@' + key)
     return {
       [tag]: [
-        ...(attr ? [_.mapKeys(attr, (value, key) => '@' + key)] : []),
+        ...(_.isEmpty(attr) ? [] : [attr]),
         ...children,
       ],
     }
