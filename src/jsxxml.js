@@ -1,6 +1,5 @@
 import _ from 'lodash'
-
-const isStringOrNumber = (child) => (_.isString(child) || _.isNumber(child))
+import { isStringOrNumber } from './utils'
 
 const normalizeChildren = (children) => {
   return _.reduce(_.flatMapDeep(children), (acc, child) => {
@@ -10,7 +9,7 @@ const normalizeChildren = (children) => {
         return acc
       }
       const lastChild = acc[acc.length - 1]
-      if (_.has(lastChild, ' #text')) {
+      if (_.has(lastChild, '#text')) {
         lastChild['#text'] = `${lastChild['#text']}${child}`
         return acc
       } else {

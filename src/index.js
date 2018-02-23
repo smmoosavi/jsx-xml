@@ -1,2 +1,6 @@
 export { default as JSXXML } from './jsxxml'
 export { default as render } from './render'
+export { default as CData } from './components/CData'
+export { default as Comment } from './components/Comment'
+export { default as Fragment } from './components/Fragment'
+export { default as Raw } from './components/Raw'

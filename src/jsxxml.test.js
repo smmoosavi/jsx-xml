@@ -35,6 +35,14 @@ describe('simple tags', () => {
     )
       .toBe('<TEST><a>1</a><b>2</b></TEST>')
   })
+
+  test('combine text and elements xml', () => {
+    const TEST = 'TEST'
+    expect(
+      render(<TEST>x<a>1</a>y<b>2</b>z</TEST>, commonOptions),
+    )
+      .toBe('<TEST>x<a>1</a>y<b>2</b>z</TEST>')
+  })
 })
 
 describe('simple tags with variables', () => {
@@ -108,6 +116,7 @@ describe('reusable tags', () => {
 </card>`)
   })
 })
+
 describe('options', () => {
   test('format xml', () => {
     expect(
@@ -117,5 +126,23 @@ describe('options', () => {
   <a>1</a>
   <b>2</b>
 </test>`)
+  })
+
+  test('format xml with variables', () => {
+    expect(
+      render(<test>
+        <case>a is: {3}</case>
+      </test>, prettyOptions),
+    )
+      .toBe(`<test>
+  <case>a is: 3</case>
+</test>`)
+  })
+})
+
+describe('errors', () => {
+  test('invalid tag', () => {
+    const Bad = {}
+    expect(() => { render(<test><Bad>1</Bad><b>2</b></test>, prettyOptions) }).toThrow()
   })
 })
