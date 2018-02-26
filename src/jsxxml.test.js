@@ -147,6 +147,26 @@ describe('options', () => {
   })
 })
 
+describe('children', () => {
+  const T = ({children}) => (<test>{children}</test>)
+  test('children attr vs jsx children', () => {
+    expect(
+      render(<T>x</T>, commonOptions),
+    )
+      .toBe('<test>x</test>')
+
+    expect(
+      render(<T children="y" />, commonOptions),
+    )
+      .toBe('<test>y</test>')
+
+    expect(
+      render(<T children="y">x</T>, commonOptions),
+    )
+      .toBe('<test>x</test>')
+  })
+})
+
 describe('errors', () => {
   test('invalid tag', () => {
     const Bad = {}

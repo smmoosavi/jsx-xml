@@ -24,21 +24,24 @@ const normalizeChildren = (children) => {
   }, [])
 }
 
-const JSXXML = (tag, attr, ...children) => {
-  if (_.isFunction(tag)) {
-    return tag({...attr, children})
+const JSXXML = (type, attr, ...children) => {
+  if (_.isFunction(type)) {
+    return type({
+      ...attr,
+      ...(children.length > 0 ? {children} : {}),
+    })
   }
-  if (_.isString(tag)) {
+  if (_.isString(type)) {
     children = normalizeChildren(children)
     attr = _.omitBy(attr, (value, key) => key.startsWith('__'))
     attr = _.mapKeys(attr, (value, key) => '@' + key)
     return {
-      [tag]: [
+      [type]: [
         ...(_.isEmpty(attr) ? [] : [attr]),
         ...children,
       ],
     }
   }
-  throw new Error('tag should be function or string')
+  throw new Error('type should be function or string')
 }
 export default JSXXML
