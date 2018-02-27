@@ -14,13 +14,15 @@
     "src"
   ],
   "scripts": {
+    "clean": "rimraf lib dist es coverage",
     "lint": "eslint src",
     "test": "cross-env BABEL_ENV=commonjs jest",
     "build:commonjs": "cross-env NODE_ENV=cjs rollup -c -o lib/jsx-xml.js",
     "build:es": "cross-env BABEL_ENV=es NODE_ENV=es rollup -c -o es/jsx-xml.js",
     "build:umd": "cross-env BABEL_ENV=es NODE_ENV=development rollup -c -o dist/jsx-xml.js",
     "build:umd:min": "cross-env BABEL_ENV=es NODE_ENV=production rollup -c -o dist/jsx-xml.min.js",
-    "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min"
+    "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
+    "prepare": "npm run clean && npm run lint && npm test && npm run build"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -32,6 +34,7 @@
     "cross-env": "^5.1.3",
     "eslint": "^4.18.1",
     "jest": "^22.4.2",
+    "rimraf": "^2.6.2",
     "rollup": "^0.56.2",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-commonjs": "^8.3.0",
