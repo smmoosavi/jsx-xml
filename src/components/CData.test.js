@@ -11,8 +11,8 @@ describe('CData', () => {
         <test>
           <CData>this is sample cdata</CData>
         </test>,
-        commonOptions
-      )
+        commonOptions,
+      ),
     ).toBe(`<test><![CDATA[this is sample cdata]]></test>`)
   })
 
@@ -24,8 +24,8 @@ describe('CData', () => {
             1 + {2} = {3}
           </CData>
         </test>,
-        commonOptions
-      )
+        commonOptions,
+      ),
     ).toBe(`<test><![CDATA[1 + 2 = 3]]></test>`)
   })
 })

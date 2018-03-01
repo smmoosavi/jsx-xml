@@ -11,8 +11,8 @@ describe('Comment', () => {
         <test>
           <Comment>this is sample comment</Comment>
         </test>,
-        commonOptions
-      )
+        commonOptions,
+      ),
     ).toBe(`<test><!-- this is sample comment --></test>`)
   })
 
@@ -24,8 +24,8 @@ describe('Comment', () => {
             1 + {2} = {3}
           </Comment>
         </test>,
-        commonOptions
-      )
+        commonOptions,
+      ),
     ).toBe(`<test><!-- 1 + 2 = 3 --></test>`)
   })
 
@@ -37,7 +37,7 @@ describe('Comment', () => {
             1 + {<number>2</number>} = {3}
           </Comment>
         </test>,
-        commonOptions
+        commonOptions,
       )
     }).toThrow()
   })
@@ -51,8 +51,8 @@ describe('Comment', () => {
             1 + {<ToFixed number={2} />} = {3}
           </Comment>
         </test>,
-        commonOptions
-      )
+        commonOptions,
+      ),
     ).toBe(`<test><!-- 1 + 2.00 = 3 --></test>`)
   })
 })

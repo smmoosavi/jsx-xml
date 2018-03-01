@@ -17,8 +17,8 @@ describe('Comment', () => {
         <test>
           <Texts />
         </test>,
-        commonOptions
-      )
+        commonOptions,
+      ),
     ).toBe(`<test><text>1</text><text>2</text></test>`)
   })
 })

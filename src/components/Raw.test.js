@@ -15,10 +15,10 @@ describe('Raw', () => {
             <Raw>{text}</Raw>
           </raw>
         </test>,
-        commonOptions
-      )
+        commonOptions,
+      ),
     ).toBe(
-      `<test><text>this text has &lt; and &gt; and  &amp; and ;</text><raw>this text has < and > and  & and ;</raw></test>`
+      `<test><text>this text has &lt; and &gt; and  &amp; and ;</text><raw>this text has < and > and  & and ;</raw></test>`,
     )
   })
 })
