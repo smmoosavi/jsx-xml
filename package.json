@@ -4,6 +4,7 @@
   "description": "Generate xml string from jsx",
   "main": "lib/jsx-xml.js",
   "module": "es/jsx-xml.js",
+  "typings": "./index.d.ts",
   "repository": "git@github.com:smmoosavi/jsx-xml.git",
   "author": "Seyyed Morteza Moosavi <se.mo.moosavi@gmail.com>",
   "license": "MIT",
@@ -11,7 +12,8 @@
     "dist",
     "lib",
     "es",
-    "src"
+    "src",
+    "index.d.ts"
   ],
   "scripts": {
     "clean": "rimraf lib dist es coverage",
