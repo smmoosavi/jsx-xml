@@ -17,7 +17,7 @@
     "clean": "rimraf lib dist es coverage",
     "format": "prettier --write '{src,test}/**/*.js'",
     "format:check": "prettier --list-different '{src,test}/**/*.js'",
-    "lint": "eslint src",
+    "lint": "eslint src test",
     "test": "cross-env BABEL_ENV=commonjs jest",
     "build:commonjs": "cross-env NODE_ENV=cjs rollup -c -o lib/jsx-xml.js",
     "build:es": "cross-env BABEL_ENV=es NODE_ENV=es rollup -c -o es/jsx-xml.js",
