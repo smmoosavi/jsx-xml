@@ -1,6 +1,6 @@
 /** @jsx JSXXML */
 /* eslint-env node, jest */
-import { CData, JSXXML, render } from '../index'
+import { CData, JSXXML, render } from '../../src/index'
 
 const commonOptions = { createOptions: { headless: true } }
 

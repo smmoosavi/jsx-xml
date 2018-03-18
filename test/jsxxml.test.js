@@ -1,7 +1,7 @@
 /** @jsx JSXXML */
 /* eslint-env node, jest */
 
-import { render, JSXXML } from './index'
+import { render, JSXXML } from '../src/index'
 
 const commonOptions = { createOptions: { headless: true } }
 const prettyOptions = {
