@@ -11,7 +11,7 @@ or
 npm install jsx-xml --save 
 ```
 
-Maybe you need to add `babel-plugin-transform-react-jsx` package if it did not installed before. 
+You need to add the `babel-plugin-transform-react-jsx` package if not already installed.
 
 ## usage
 
@@ -25,7 +25,7 @@ console.log(xml) // xml output: <?xml version="1.0"?><test x="3">1 + 2 = 3</test
 
 ## API
 
-You can import following functions from `jsx-xml` package:
+You can import the following functions from the `jsx-xml` package:
 
 ```js
 import {render, JSXXML, CData, Comment, Fragment, Raw} from 'jsx-xml'
@@ -39,7 +39,7 @@ import {render, JSXXML, CData, Comment, Fragment, Raw} from 'jsx-xml'
 - [Raw](#raw)
 
 ### `render`
-`render(jsx, options)` function converts jsx (JSXXML output) to xml string.
+`render(jsx, options)` converts jsx (JSXXML output) to xml string.
 
 options:
 - `xmldec`: directly passed to [`xmlbuilder.create`][xmlbuilder-create]
@@ -57,11 +57,11 @@ const options = {createOptions: {headless: true}, endOptions: {pretty: true}}
 
 - `type`: string or function
 
-If `type` is a string it will directly used in xml output. lowercase jsx element type will be string (e.g. `<test />`)
+If `type` is a string, it will be considered and used as an xml tag. In case the jsx tag is in lowercase, it will be considered as a string in compile time. (e.g. `<test />`)
 
-If `type` is a function will called with attr and children. function must be Capitalized.
+If `type` is a function, the output of the JSXXML function will equal that of `type` when called with parameters `attr` and `children`.
 
-If you need non-lowercase xml tag you can create Capitalized variable with string value. 
+If you need a non-lowercase xml tag, you can create a variable named Capitalized and use it in your jsx script.
 
 Examples:
 
@@ -88,12 +88,12 @@ JSXXML(
   "Click Star"
 );
 ```
-You can also use the self-closing form of the tag if there are no children. So:
+You can also use the self-closing form of the tag if there are no children:
 
 ```jsx harmony
 /** @jsx JSXXML */
 
-<user username="bob" />
+<user username="Bob" />
 ```
 
 compiles into:
@@ -101,12 +101,12 @@ compiles into:
 ```js
 /** @jsx JSXXML */
 
-JSXXML("user", { username: "bob" });
+JSXXML("user", { username: "Bob" });
 ```
 
 
 ### `CData`
-With this tag you can add cdata to your xml output.
+This tag allows you to add cdata to your xml output.
 
 ```jsx harmony
 /** @jsx JSXXML */
@@ -122,7 +122,7 @@ output:
 ```
 
 ### `Comment`
-With this tag you can add comments to your xml output.
+This tag allows you to add comments to your xml output.
 
 ```jsx harmony
 /** @jsx JSXXML */
@@ -138,7 +138,7 @@ output
 ```
 
 ### `Fragment`
-With fragment tag you can return more than one element. `Fragment` is useful in functions.
+This tag allows you to return more than one element. `Fragment` is useful in functions.
 
 ```jsx harmony
 import { render, JSXXML, Fragment } from 'jsx-xml'
@@ -161,7 +161,7 @@ output:
 ```
 
 ### `Raw`
-With this tag you can add data to your xml without escaping. 
+This tag allows you to add data to your xml without escaping. 
 
 ```jsx harmony
 /** @jsx JSXXML */
@@ -182,8 +182,8 @@ output:
 ```
 
 ## How to config babel for jsx-xml
-You can include `/** @jsx JSXXML */` in your file first line or pass it as pragma param to
-`transform-react-jsx` plugin in `.babelrc`:
+You can include `/** @jsx JSXXML */` at the first line of your file or pass it as pragma param to the
+`transform-react-jsx` plugin present in `.babelrc`:
 ```json
 {
   "plugins": [
@@ -196,7 +196,7 @@ You can include `/** @jsx JSXXML */` in your file first line or pass it as pragm
   ]
 }
 ```
-Also you can use `babel-plugin-jsx-pragmatic` if you don't want to import JSXXML in every pages.
+You can also use `babel-plugin-jsx-pragmatic` to avoid importing JSXXML in every page.
 
 ```json
 {
