@@ -7,36 +7,37 @@ declare module 'jsx-xml' {
 
   type DeepStringArray = DeepArray<string>
 
-  type Child = null | boolean | number | string | Object
+  type Child = null | boolean | number | string | object
   type Children = DeepArrayValue<Child>
 
   interface Options {
-    xmldec?: any,
-    doctype?: any,
-    createOptions?: any,
-    endOptions?: any,
+    xmldec?: any
+    doctype?: any
+    createOptions?: any
+    endOptions?: any
   }
 
-  function render(jsx: Children, options?: Options): string;
+  interface Jsxxml {
+    render(jsx: Children, options?: Options): string
 
-  function JSXXML(type: string | Function, attr: null | object, ...children: Children[]): Children;
+    JSXXML(
+      type:
+        | string
+        | ((attr: null | object, children: Children[]) => Children),
+      attr: null | object,
+      ...children: Children[]
+    ): Children
 
-  function Fragment(props: { children: DeepArray<any> }): Children[];
+    Fragment(props: { children: DeepArray<any> }): Children[]
 
-  function CData(props: { children: DeepStringArray }): Child;
+    CData(props: { children: DeepStringArray }): Child
 
-  function Comment(props: { children: DeepStringArray }): Child;
+    Comment(props: { children: DeepStringArray }): Child
 
-  function Raw(props: { children: DeepStringArray }): Child;
-
-  interface jsxxml {
-    render,
-    JSXXML,
-    Fragment,
-    CData,
-    Comment,
-    Raw,
+    Raw(props: { children: DeepStringArray }): Child
   }
+
+  const jsxxml: Jsxxml
 
   export = jsxxml;
 }
