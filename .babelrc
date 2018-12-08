@@ -1,23 +1,23 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
         "modules": false
       }
     ]
   ],
   "plugins": [
-    "transform-object-rest-spread"
+    "@babel/plugin-proposal-object-rest-spread"
   ],
   "env": {
     "commonjs": {
       "presets": [
-        "env"
+        "@babel/preset-env"
       ],
       "plugins": [
         [
-          "transform-react-jsx"
+          "@babel/plugin-transform-react-jsx"
         ]
       ]
     }

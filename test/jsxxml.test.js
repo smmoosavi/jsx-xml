@@ -94,7 +94,14 @@ describe('simple tags with variables', () => {
 
   test('array children', () => {
     expect(
-      render(<test>{[1, 2, 3].map(i => <i>{i}</i>)}</test>, commonOptions),
+      render(
+        <test>
+          {[1, 2, 3].map(i => (
+            <i>{i}</i>
+          ))}
+        </test>,
+        commonOptions,
+      ),
     ).toBe('<test><i>1</i><i>2</i><i>3</i></test>')
   })
 

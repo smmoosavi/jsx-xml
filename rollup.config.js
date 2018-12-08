@@ -2,7 +2,7 @@ import babel from 'rollup-plugin-babel'
 import commonjs from 'rollup-plugin-commonjs'
 import nodeResolve from 'rollup-plugin-node-resolve'
 import replace from 'rollup-plugin-replace'
-import uglify from 'rollup-plugin-uglify'
+import { uglify } from 'rollup-plugin-uglify'
 
 const env = process.env.NODE_ENV
 
@@ -12,18 +12,15 @@ const config = {
     name: 'JSXXML',
     format: 'umd',
     globals: {
-      'xmlbuilder': 'xmlbuilder',
-      'lodash': 'lodash',
+      xmlbuilder: 'xmlbuilder',
+      lodash: 'lodash',
     },
   },
-  external: [
-    'xmlbuilder', 'lodash',
-  ],
+  external: ['xmlbuilder', 'lodash'],
   plugins: [
     nodeResolve(),
     babel({
       exclude: '**/node_modules/**',
-      plugins: ['external-helpers'],
     }),
     replace({
       'process.env.NODE_ENV': JSON.stringify(env),
