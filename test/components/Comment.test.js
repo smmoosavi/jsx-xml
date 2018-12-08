@@ -16,6 +16,17 @@ describe('Comment', () => {
     ).toBe(`<test><!-- this is sample comment --></test>`)
   })
 
+  test('empty Comment', () => {
+    expect(
+      render(
+        <test>
+          <Comment />
+        </test>,
+        commonOptions,
+      ),
+    ).toBe(`<test><!--  --></test>`)
+  })
+
   test('simple Comment with variables', () => {
     expect(
       render(

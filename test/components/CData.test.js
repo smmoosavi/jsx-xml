@@ -16,6 +16,17 @@ describe('CData', () => {
     ).toBe(`<test><![CDATA[this is sample cdata]]></test>`)
   })
 
+  test('empty CData', () => {
+    expect(
+      render(
+        <test>
+          <CData />
+        </test>,
+        commonOptions,
+      ),
+    ).toBe(`<test><![CDATA[]]></test>`)
+  })
+
   test('simple CData with variables', () => {
     expect(
       render(

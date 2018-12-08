@@ -4,7 +4,7 @@ import { render, JSXXML, Fragment } from '../../src/index'
 
 const commonOptions = { createOptions: { headless: true } }
 
-describe('Comment', () => {
+describe('Fragment', () => {
   const Texts = () => (
     <Fragment>
       <text>1</text>
@@ -20,5 +20,16 @@ describe('Comment', () => {
         commonOptions,
       ),
     ).toBe(`<test><text>1</text><text>2</text></test>`)
+  })
+
+  test('empty Fragment', () => {
+    expect(
+      render(
+        <test>
+          <Fragment />
+        </test>,
+        commonOptions,
+      ),
+    ).toBe(`<test/>`)
   })
 })

@@ -21,4 +21,15 @@ describe('Raw', () => {
       `<test><text>this text has &lt; and &gt; and  &amp; and ;</text><raw>this text has < and > and  & and ;</raw></test>`,
     )
   })
+
+  test('empty Raw', () => {
+    expect(
+      render(
+        <test>
+          <Raw />
+        </test>,
+        commonOptions,
+      ),
+    ).toBe(`<test/>`)
+  })
 })
