@@ -1,6 +1,9 @@
 # jsx-xml
 Generate xml string from jsx
 
+[![Build Status](https://travis-ci.org/smmoosavi/jsx-xml.svg?branch=master)](https://travis-ci.org/smmoosavi/jsx-xml)
+[![codecov](https://codecov.io/gh/smmoosavi/jsx-xml/branch/master/graph/badge.svg)](https://codecov.io/gh/smmoosavi/jsx-xml)
+
 ## install
 Add jsx-xml packages
 ```
