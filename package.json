@@ -34,6 +34,8 @@
     "@babel/plugin-proposal-object-rest-spread": "7.5.5",
     "@babel/plugin-transform-react-jsx": "7.3.0",
     "@babel/preset-env": "7.5.5",
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.2",
     "babel-jest": "^24.9.0",
@@ -64,6 +66,7 @@
   },
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "npm run format:check && npm run lint && npm test"
     }
   },
