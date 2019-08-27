@@ -19,7 +19,7 @@ describe('Fragment', () => {
         </test>,
         commonOptions,
       ),
-    ).toBe(`<test><text>1</text><text>2</text></test>`)
+    ).toBe('<test><text>1</text><text>2</text></test>')
   })
 
   test('empty Fragment', () => {
@@ -30,6 +30,6 @@ describe('Fragment', () => {
         </test>,
         commonOptions,
       ),
-    ).toBe(`<test/>`)
+    ).toBe('<test/>')
   })
 })

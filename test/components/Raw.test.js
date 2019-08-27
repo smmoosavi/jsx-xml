@@ -18,7 +18,7 @@ describe('Raw', () => {
         commonOptions,
       ),
     ).toBe(
-      `<test><text>this text has &lt; and &gt; and  &amp; and ;</text><raw>this text has < and > and  & and ;</raw></test>`,
+      '<test><text>this text has &lt; and &gt; and  &amp; and ;</text><raw>this text has < and > and  & and ;</raw></test>',
     )
   })
 
@@ -30,6 +30,6 @@ describe('Raw', () => {
         </test>,
         commonOptions,
       ),
-    ).toBe(`<test/>`)
+    ).toBe('<test/>')
   })
 })

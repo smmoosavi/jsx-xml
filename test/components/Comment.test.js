@@ -13,7 +13,7 @@ describe('Comment', () => {
         </test>,
         commonOptions,
       ),
-    ).toBe(`<test><!-- this is sample comment --></test>`)
+    ).toBe('<test><!-- this is sample comment --></test>')
   })
 
   test('empty Comment', () => {
@@ -24,7 +24,7 @@ describe('Comment', () => {
         </test>,
         commonOptions,
       ),
-    ).toBe(`<test><!--  --></test>`)
+    ).toBe('<test><!--  --></test>')
   })
 
   test('simple Comment with variables', () => {
@@ -37,7 +37,7 @@ describe('Comment', () => {
         </test>,
         commonOptions,
       ),
-    ).toBe(`<test><!-- 1 + 2 = 3 --></test>`)
+    ).toBe('<test><!-- 1 + 2 = 3 --></test>')
   })
 
   test('comment can not use embed element', () => {
@@ -64,6 +64,6 @@ describe('Comment', () => {
         </test>,
         commonOptions,
       ),
-    ).toBe(`<test><!-- 1 + 2.00 = 3 --></test>`)
+    ).toBe('<test><!-- 1 + 2.00 = 3 --></test>')
   })
 })

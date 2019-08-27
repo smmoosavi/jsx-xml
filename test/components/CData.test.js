@@ -13,7 +13,7 @@ describe('CData', () => {
         </test>,
         commonOptions,
       ),
-    ).toBe(`<test><![CDATA[this is sample cdata]]></test>`)
+    ).toBe('<test><![CDATA[this is sample cdata]]></test>')
   })
 
   test('empty CData', () => {
@@ -24,7 +24,7 @@ describe('CData', () => {
         </test>,
         commonOptions,
       ),
-    ).toBe(`<test><![CDATA[]]></test>`)
+    ).toBe('<test><![CDATA[]]></test>')
   })
 
   test('simple CData with variables', () => {
@@ -37,6 +37,6 @@ describe('CData', () => {
         </test>,
         commonOptions,
       ),
-    ).toBe(`<test><![CDATA[1 + 2 = 3]]></test>`)
+    ).toBe('<test><![CDATA[1 + 2 = 3]]></test>')
   })
 })

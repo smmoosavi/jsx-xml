@@ -5,6 +5,8 @@
     "standard-jsx"
   ],
   "rules": {
+    "react/jsx-pascal-case": "off",
+    "react/jsx-key": "off",
     "jsx-quotes": [
       "error",
       "prefer-double"
