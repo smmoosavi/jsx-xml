@@ -209,3 +209,35 @@ describe('errors', () => {
     }).toThrow()
   })
 })
+
+describe('order', () => {
+  test('order of attributes', () => {
+    const logs = []
+    const Parent = ({ children }) => {
+      logs.push('parent')
+      return <parent>{children}</parent>
+    }
+    const Child = ({ children }) => {
+      logs.push('child')
+      return <child>{children}</child>
+    }
+    const GrandChild = ({ children }) => {
+      logs.push('grandchild')
+      return <grandchild>{children}</grandchild>
+    }
+    const res = render(
+      <Parent>
+        <Child>
+          <GrandChild>1</GrandChild>
+        </Child>
+      </Parent>,
+      prettyOptions,
+    )
+    expect(res).toBe(`<parent>
+  <child>
+    <grandchild>1</grandchild>
+  </child>
+</parent>`)
+    expect(logs).toEqual(['grandchild', 'child', 'parent'])
+  })
+})
