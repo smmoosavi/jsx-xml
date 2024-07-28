@@ -37,15 +37,22 @@
   "devDependencies": {
     "@microsoft/api-extractor": "^7",
     "@types/node": "^20",
+    "@types/react": "^18.3.3",
+    "@types/react-is": "^18.3.0",
     "@vitest/coverage-istanbul": "^1",
     "eslint": "^8",
     "eslint-config-react-app": "^7",
     "husky": "^9",
     "lint-staged": "^15",
     "prettier": "^3",
+    "react": "^18.3.1",
     "typescript": "^5",
     "vite": "^5",
     "vite-plugin-dts": "^3",
     "vitest": "^1"
+  },
+  "dependencies": {
+    "react-is": "^18.3.1",
+    "xmlbuilder2": "^3.1.1"
   }
 }
