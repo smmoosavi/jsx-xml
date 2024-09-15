@@ -1,6 +1,10 @@
+// @jsxRuntime classic
+// @jsxFrag Fragment
+// @jsx h
+
 import React from 'react';
 import { describe, expect, test } from 'vitest';
-import { CData, Comment, Fragment, Ins, render } from './index';
+import { CData, Comment, Fragment, Ins, h, render } from './index';
 
 declare global {
   namespace JSX {
@@ -124,7 +128,7 @@ describe('render', () => {
         '<test ref="1"/>',
       );
     });
-    test.skip('render with key and attr', () => {
+    test('render with key and attr', () => {
       expect(
         render(<test key="1" ref="3" id="2" />).end({ headless: true }),
       ).toBe('<test key="1" ref="3" id="2"/>');

@@ -70,10 +70,10 @@ function renderChildren(cur: XMLBuilder, children: any) {
 
 export function renderBuiltinElement(cur: XMLBuilder, element: any) {
   if (element.type === 'cdata') {
-    cur.dat(element.props.children);
+    cur.dat(element.props.text);
   }
   if (element.type === 'comment') {
-    cur.com(element.props.children);
+    cur.com(element.props.text);
   }
   if (element.type === 'ins') {
     cur.ins(element.props.target, element.props.content);
