@@ -1,0 +1,10 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/api-extractor/v7/api-extractor.schema.json",
+
+  "extends": "./api-extractor-base.json",
+  "mainEntryPointFilePath": "<projectFolder>/.cache/dts/jsx-dev-runtime.d.ts",
+  "dtsRollup": {
+    "enabled": true,
+    "untrimmedFilePath": "<projectFolder>/jsx-dev-runtime.d.ts"
+  }
+}

@@ -5,6 +5,8 @@
     "src",
     "dist",
     "index.d.ts",
+    "jsx-runtime.d.ts",
+    "jsx-dev-runtime.d.ts",
     "tsdoc-metadata.json"
   ],
   "license": "MIT",
@@ -17,6 +19,16 @@
       "types": "./index.d.ts",
       "require": "./dist/index.cjs",
       "import": "./dist/index.js"
+    },
+    "./jsx-runtime": {
+      "types": "./jsx-runtime.d.ts",
+      "require": "./dist/jsx-runtime.cjs",
+      "import": "./dist/jsx-runtime.js"
+    },
+    "./jsx-dev-runtime": {
+      "types": "./jsx-dev-runtime.d.ts",
+      "require": "./dist/jsx-dev-runtime.cjs",
+      "import": "./dist/jsx-dev-runtime.js"
     }
   },
   "engines": {
@@ -30,7 +42,10 @@
     "format:check": "prettier --check '**/*.{js,jsx,ts,tsx,json,yml,css,scss,md}'",
     "test": "vitest --run --coverage",
     "test:watch": "vitest",
-    "build:dts": "api-extractor run --local --verbose && prettier --write index.d.ts",
+    "build:dts:index": "api-extractor run --local --verbose --config api-extractor-index.json && prettier --write index.d.ts",
+    "build:dts:jsx-runtime": "api-extractor run --local --verbose --config api-extractor-jsx-runtime.json && prettier --write jsx-runtime.d.ts",
+    "build:dts:jsx-dev-runtime": "api-extractor run --local --verbose --config api-extractor-jsx-dev-runtime.json && prettier --write jsx-dev-runtime.d.ts",
+    "build:dts": "pnpm build:dts:index && pnpm build:dts:jsx-runtime && pnpm build:dts:jsx-dev-runtime",
     "build": "tsc && vite build && pnpm build:dts",
     "prepublishOnly": "pnpm build"
   },
