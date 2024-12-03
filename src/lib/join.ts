@@ -1,4 +1,10 @@
+/**
+ * @public
+ */
 export type TextChild = string | number | boolean | null | undefined;
+/**
+ * @public
+ */
 export type TextChildren = TextChild | TextChildren[];
 
 export function joinTextChildren(children: TextChildren): string {
