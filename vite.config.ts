@@ -32,5 +32,6 @@ export default defineConfig({
     rollupOptions: {
       external,
     },
+    minify: false, // Disable minification
   },
 });
