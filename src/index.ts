@@ -1,8 +1,5 @@
 export { render } from './lib/render';
-export { Fragment } from './builtin/Fragment';
-export { Comment } from './builtin/Comment';
-export { CData } from './builtin/CData';
-export { Ins } from './builtin/Ins';
+export { Fragment, Comment, CData, Ins } from './builtin';
 
 export { createElement } from './lib/runtime';
 export { JSXXML, JSXXML as h } from './lib/runtime';
@@ -17,3 +14,7 @@ export type {
   JsxXmlComponentElement,
   JsxXmlTagElement,
 } from './lib/types';
+
+export { renderAsync } from './lib/render-async';
+export { createContext, useContext } from './lib/context';
+export type { Context } from './lib/context';

@@ -47,27 +47,28 @@
     "build:dts:jsx-dev-runtime": "api-extractor run --local --verbose --config api-extractor-jsx-dev-runtime.json && prettier --write jsx-dev-runtime.d.ts",
     "build:dts": "pnpm build:dts:index && pnpm build:dts:jsx-runtime && pnpm build:dts:jsx-dev-runtime",
     "build": "tsc && vite build && pnpm build:dts",
+    "watch": "vite build --watch",
     "prepublishOnly": "pnpm build"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7",
     "@types/node": "^20",
-    "@types/react": "^18.3.3",
-    "@types/react-is": "^18.3.0",
+    "@types/react": "^19.0.10",
+    "@types/react-is": "^19.0.0",
     "@vitest/coverage-istanbul": "^1",
     "eslint": "^8",
     "eslint-config-react-app": "^7",
     "husky": "^9",
     "lint-staged": "^15",
     "prettier": "^3",
-    "react": "^18.3.1",
+    "react": "^19.0.0",
     "typescript": "^5",
-    "vite": "^5",
+    "vite": "^6.2.0",
     "vite-plugin-dts": "^3",
     "vitest": "^1"
   },
   "dependencies": {
-    "react-is": "^18.3.1",
+    "react-is": "^19.0.0",
     "xmlbuilder2": "^3.1.1"
   }
 }

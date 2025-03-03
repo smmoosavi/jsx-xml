@@ -1,4 +1,4 @@
-export const JsxXML = Symbol('JSXXML');
+export const JsxXML = Symbol.for('JSXXML');
 
 /**
  *

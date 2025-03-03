@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 
 /**
- *
  * @public
  */
 export declare function Fragment(props: { children?: ReactNode }): ReactNode;

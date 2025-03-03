@@ -1,4 +1,4 @@
-export { Fragment } from './builtin/Fragment';
+export { Fragment } from './builtin';
 export { jsxDEV } from './lib/runtime';
 export type {
   JsxXmlElement,

@@ -1,12 +1,13 @@
-import { create } from 'xmlbuilder2';
+import { ReactElement } from 'react';
+import { isElement } from 'react-is';
+import { fragment } from 'xmlbuilder2';
 import type { XMLBuilder } from 'xmlbuilder2/lib/interfaces';
 import { XMLBuilderCreateOptions } from 'xmlbuilder2/lib/interfaces';
-import { isElement } from 'react-is';
+import { defaultContexts, setGlobalContexts } from './context';
+import { getCurrentElement, withElement } from './elements-stack';
+import { isJsxXmlComponentElement, isJsxXmlTagElement } from './jsx';
 import { reactElementToJsxXmlElement } from './react';
 import { JsxXmlElement } from './types';
-import { isJsxXmlComponentElement, isJsxXmlTagElement } from './jsx';
-import { getCurrentElement, withElement } from './elements-stack';
-import { ReactElement } from 'react';
 
 /**
  *
@@ -16,22 +17,38 @@ export function render(
   element: ReactElement | JsxXmlElement,
   options?: XMLBuilderCreateOptions,
 ) {
-  let cur = create(options ?? {});
+  setGlobalContexts(new Map(defaultContexts));
+  let cur = fragment(options ?? {});
 
   withElement(cur, () => renderElement(element));
 
   return cur;
 }
 
+// this happens when you render a React memo or forwardRef component with jsx-xml
+export function isReactMemoOrForwardRef(element: any): element is ReactElement {
+  return element?.type?.type || element?.type?.render;
+}
+
 function renderElement(element: ReactElement | JsxXmlElement) {
-  if (isElement(element)) {
+  if (isElement(element) || isReactMemoOrForwardRef(element)) {
     renderElement(reactElementToJsxXmlElement(element));
   } else if (isJsxXmlTagElement(element)) {
     renderTagElement(element);
   } else if (isJsxXmlComponentElement(element)) {
     renderComponentElement(element);
+  } else if (isXmlBuilder(element)) {
+    getCurrentElement().import(element);
   } else {
-    throw new Error('Unsupported element type');
+    throw new Error('Unsupported element type ' + tryStringify(element));
+  }
+}
+
+export function tryStringify(element: any) {
+  try {
+    return JSON.stringify(element).slice(0, 300);
+  } catch (e) {
+    return String(element);
   }
 }
 
@@ -65,4 +82,8 @@ function renderChildren(children: any) {
   } else if (children) {
     renderElement(children);
   }
+}
+
+export function isXmlBuilder(element: any): element is XMLBuilder {
+  return typeof element === 'object' && element !== null && 'node' in element;
 }
